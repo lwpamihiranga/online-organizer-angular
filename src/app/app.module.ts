@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { EventComponent } from './components/event/event.component';
+import { EventListComponent } from './components/event-list/event-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CalendarComponent,
     HeaderComponent,
-    EventComponent
+    EventComponent,
+    EventListComponent
   ],
   imports: [
     BrowserModule,
