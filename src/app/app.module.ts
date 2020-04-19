@@ -12,6 +12,8 @@ import { CreateEventComponent } from './components/create-event/create-event.com
 
 import { EventService } from './services/event.service';
 
+import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +23,7 @@ import { EventService } from './services/event.service';
     EventListComponent,
     CreateEventComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, CalendarModule],
   providers: [EventService],
   bootstrap: [AppComponent],
 })
