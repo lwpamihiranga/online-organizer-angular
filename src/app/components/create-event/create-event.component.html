@@ -1,0 +1,22 @@
+<div>
+    <h3>Add New Event</h3>
+    <form (ngSubmit)="onSubmit()" #addEventForm="ngForm">
+        <div>
+            <label for="eventName">Event Name</label>
+            <input type="text" id="eventName" name="name" [(ngModel)]="model.name">
+        </div>
+        <div>
+            <label for="eventDate">Date</label>
+            <input type="date" id="eventDate" name="date" [(ngModel)]="model.date">
+        </div>
+        <div>
+            <label for="eventTime">Time</label>
+            <input type="time" id="eventTime" name="time" [(ngModel)]="model.time">
+        </div>
+        <button type="submit">Add Event</button>
+    </form>
+</div>
+
+{{model.name}} ||
+{{model.date}} ||
+{{model.time}}
