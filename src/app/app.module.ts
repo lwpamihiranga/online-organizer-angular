@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +10,8 @@ import { EventComponent } from './components/event/event.component';
 import { EventListComponent } from './components/event-list/event-list.component';
 import { CreateEventComponent } from './components/create-event/create-event.component';
 
+import { EventService } from './services/event.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,14 +19,10 @@ import { CreateEventComponent } from './components/create-event/create-event.com
     HeaderComponent,
     EventComponent,
     EventListComponent,
-    CreateEventComponent
+    CreateEventComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  providers: [EventService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
