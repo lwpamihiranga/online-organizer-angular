@@ -10,6 +10,7 @@ import { EventService } from 'src/app/services/event.service';
 })
 export class CreateEventComponent implements OnInit {
   eventList: Event[] = [];
+  // model: Event = null;
 
   constructor(private eventService: EventService) {}
 
@@ -26,8 +27,5 @@ export class CreateEventComponent implements OnInit {
     );
 
     this.eventService.addEvent(newEvent);
-
-    console.log('Event added');
-    this.eventService.printEvents();
   }
 }

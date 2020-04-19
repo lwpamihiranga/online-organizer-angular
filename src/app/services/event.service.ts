@@ -7,8 +7,11 @@ import { Event } from '../models/event';
 export class EventService {
   eventList: Event[];
 
+  eventListCurrent: Event[];
+
   constructor() {
     this.eventList = [];
+    this.eventListCurrent = [];
   }
 
   addEvent(event: Event) {
@@ -19,7 +22,23 @@ export class EventService {
     console.log('Events: ', this.eventList);
   }
 
-  getEvents() {
-    return this.eventList;
+  setCurrentList(date: string) {
+    this.clearCurrentList();
+
+    this.eventList.forEach((event: Event) => {
+      if (event.date === date) {
+        this.eventListCurrent.push(event);
+      }
+    });
+  }
+
+  getCurrentEvents() {
+    return this.eventListCurrent;
+  }
+
+  clearCurrentList() {
+    for (let i = 0; i < this.eventListCurrent.length; i++) {
+      this.eventListCurrent.pop();
+    }
   }
 }

@@ -1,1 +1,16 @@
-<input type="date" value="2020-05-12" name="eventDate" id="eventDate" />
+<!-- <input type="date" value="2020-05-12" name="eventDate" id="eventDate" /> -->
+
+<ejs-calendar
+  id="calendar"
+  [value]="value"
+  [min]="minDate"
+  [max]="maxDate"
+  [(ngModel)]="value"
+  (click)="setDate()"
+>
+</ejs-calendar>
+
+<input type="time" id="eventTime" name="time" [(ngModel)]="time" />
+
+{{ value }} ||
+{{ time }}
