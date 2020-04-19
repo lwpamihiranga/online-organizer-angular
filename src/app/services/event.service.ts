@@ -10,12 +10,21 @@ export class EventService {
   eventListCurrent: Event[];
 
   constructor() {
-    this.eventList = [];
+    this.eventList = [
+      { id: 1, name: 'event one', date: '2020-04-20', time: '10.00' },
+      { id: 2, name: 'event two', date: '2020-04-20', time: '12.00' },
+      { id: 3, name: 'event three', date: '2020-04-20', time: '16.00' },
+      { id: 4, name: 'event four', date: '2020-04-21', time: '10.00' },
+      { id: 5, name: 'event five', date: '2020-04-21', time: '19.00' },
+    ];
+
     this.eventListCurrent = [];
   }
 
   addEvent(event: Event) {
     this.eventList.push(event);
+
+    this.printEvents();
   }
 
   printEvents() {
@@ -23,8 +32,6 @@ export class EventService {
   }
 
   setCurrentList(date: string) {
-    this.clearCurrentList();
-
     this.eventList.forEach((event: Event) => {
       if (event.date === date) {
         this.eventListCurrent.push(event);
@@ -34,11 +41,5 @@ export class EventService {
 
   getCurrentEvents() {
     return this.eventListCurrent;
-  }
-
-  clearCurrentList() {
-    for (let i = 0; i < this.eventListCurrent.length; i++) {
-      this.eventListCurrent.pop();
-    }
   }
 }
