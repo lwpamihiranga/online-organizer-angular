@@ -16,11 +16,36 @@ export class EventService {
 
   constructor() {
     this.eventList = [
-      { id: 1, name: 'event one', date: '2020-04-20', time: '10.00' },
-      { id: 2, name: 'event two', date: '2020-04-20', time: '12.00' },
-      { id: 3, name: 'event three', date: '2020-04-20', time: '16.00' },
-      { id: 4, name: 'event four', date: '2020-04-21', time: '10.00' },
-      { id: 5, name: 'event five', date: '2020-04-21', time: '19.00' },
+      {
+        id: 202004201000,
+        name: 'event one',
+        date: '2020-04-20',
+        time: '10.00',
+      },
+      {
+        id: 202004200800,
+        name: 'event two',
+        date: '2020-04-20',
+        time: '08.00',
+      },
+      {
+        id: 202004201600,
+        name: 'event three',
+        date: '2020-04-20',
+        time: '16.00',
+      },
+      {
+        id: 203004211000,
+        name: 'event four',
+        date: '2020-04-21',
+        time: '10.00',
+      },
+      {
+        id: 202004211900,
+        name: 'event five',
+        date: '2020-04-21',
+        time: '19.00',
+      },
     ];
 
     this.eventListCurrent = [];
@@ -55,7 +80,10 @@ export class EventService {
   }
 
   getNextEvent() {
-    let result: Event = null;
+    let result: Event = new Event(null, 'No events available', '', '');
+    if (this.eventList.length === 0) {
+      return result;
+    }
     let idArray: number[] = [];
     this.eventList.forEach((event: Event) => {
       idArray.push(event.id);
