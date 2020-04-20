@@ -20,19 +20,28 @@ export class CreateEventComponent implements OnInit {
     console.log(this.eventService.getNextEvent());
   }
 
-  model = new Event(1, '', '', '');
+  model = new Event(null, '', '', '');
 
   onSubmit() {
-    console.log(this.model.date);
-    console.log(typeof this.model.date);
+    let id = this.createId(this.model.date, this.model.time);
+
     let newEvent: Event = new Event(
-      Date.now(),
+      id,
       this.model.name,
       this.model.date,
       this.model.time
     );
 
     this.eventService.addEvent(newEvent);
+  }
+
+  createId(date: string, time: string) {
+    let part1 = date.substr(0, 4) + date.substr(5, 2) + date.substr(8, 2);
+    let part2 = time.substr(0, 2) + time.substr(3, 2);
+
+    let stringId = part1 + part2;
+
+    return parseInt(stringId);
   }
 
   setDate() {
