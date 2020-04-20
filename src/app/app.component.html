@@ -1,7 +1,21 @@
-<div>
-  <app-header></app-header>
-  <app-calendar></app-calendar>
+<div class="container">
+  <div class="jumbotron">
+    <app-header></app-header>
+  </div>
+
   <app-create-event></app-create-event>
-  <app-event-list></app-event-list>
+
+  <div class="row jumbotron">
+    <div class="col-sm">
+      <app-calendar></app-calendar>
+    </div>
+    <div class="col-sm">
+      <app-next-event></app-next-event>
+    </div>
+  </div>
+
+  <div class="jumbotron">
+    <app-event-list></app-event-list>
+  </div>
 </div>
 <router-outlet></router-outlet>

@@ -16,11 +16,15 @@ export class CreateEventComponent implements OnInit {
 
   ngOnInit(): void {
     this.setDate();
+
+    console.log(this.eventService.getNextEvent());
   }
 
   model = new Event(1, '', '', '');
 
   onSubmit() {
+    console.log(this.model.date);
+    console.log(typeof this.model.date);
     let newEvent: Event = new Event(
       Date.now(),
       this.model.name,

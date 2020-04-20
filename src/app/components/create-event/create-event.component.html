@@ -1,26 +1,51 @@
-<div>
-  <h3>Add New Event</h3>
-  <form (ngSubmit)="onSubmit()" #addEventForm="ngForm">
-    <div>
-      <label for="eventName">Event Name</label>
-      <input type="text" id="eventName" name="name" [(ngModel)]="model.name" />
-    </div>
-    <div>
-      <label for="eventDate">Date</label>
-      <input
-        type="date"
-        id="eventDate"
-        name="date"
-        [(ngModel)]="model.date"
-        min="{{ minDate }}"
-      />
-    </div>
-    <div>
-      <label for="eventTime">Time</label>
-      <input type="time" id="eventTime" name="time" [(ngModel)]="model.time" />
-    </div>
-    <button type="submit">Add Event</button>
-  </form>
+<div class="jumbotron">
+  <button
+    class="btn btn-success"
+    type="button"
+    data-toggle="collapse"
+    data-target="#collapseAddEvent"
+    aria-expanded="false"
+    aria-controls="collapseAddEvent"
+  >
+    Click here to add a New Event
+  </button>
+  <div class="collapse" id="collapseAddEvent">
+    <h3>Add New Event</h3>
+    <form (ngSubmit)="onSubmit()" #addEventForm="ngForm">
+      <div class="form-group">
+        <label for="eventName">Event Name</label>
+        <input
+          class="form-control"
+          type="text"
+          id="eventName"
+          name="name"
+          [(ngModel)]="model.name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="eventDate">Date</label>
+        <input
+          class="form-control"
+          type="date"
+          id="eventDate"
+          name="date"
+          [(ngModel)]="model.date"
+          min="{{ minDate }}"
+        />
+      </div>
+      <div class="form-group">
+        <label for="eventTime">Time</label>
+        <input
+          class="form-control"
+          type="time"
+          id="eventTime"
+          name="time"
+          [(ngModel)]="model.time"
+        />
+      </div>
+      <button class="btn btn-primary" type="submit">Add Event</button>
+    </form>
+  </div>
 </div>
 
-{{ model.name }} || {{ model.date }} || {{ model.time }}
+<!-- {{ model.name }} || {{ model.date }} || {{ model.time }} -->

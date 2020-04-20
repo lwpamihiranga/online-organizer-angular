@@ -1,6 +1,10 @@
 <div>
-  <li>
-    {{ event.time }} || {{ event.name }}
-    <button (click)="delete(event)">Delete</button>
-  </li>
+  <div class="row">
+    <div class="col-sm">
+      <li class="list-group-item">{{ event.time }} || {{ event.name }}</li>
+    </div>
+    <div class="col-sm">
+      <button class="btn btn-danger" (click)="delete(event)">Delete</button>
+    </div>
+  </div>
 </div>

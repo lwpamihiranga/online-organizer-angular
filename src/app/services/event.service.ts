@@ -63,7 +63,7 @@ export class EventService {
 
     let minID = Math.min.apply(Math, idArray);
 
-    this.eventList.find((event: Event) => {
+    result = this.eventList.find((event: Event) => {
       return event.id === minID;
     });
 

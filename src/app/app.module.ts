@@ -13,6 +13,7 @@ import { CreateEventComponent } from './components/create-event/create-event.com
 import { EventService } from './services/event.service';
 
 import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
+import { NextEventComponent } from './components/next-event/next-event.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
     EventComponent,
     EventListComponent,
     CreateEventComponent,
+    NextEventComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, CalendarModule],
   providers: [EventService],
