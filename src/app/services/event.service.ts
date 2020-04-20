@@ -31,6 +31,10 @@ export class EventService {
     console.log('Events: ', this.eventList);
   }
 
+  printCurrentEvents() {
+    console.log('Current Events: ', this.eventListCurrent);
+  }
+
   setCurrentList(date: string) {
     this.eventList.forEach((event: Event) => {
       if (event.date === date) {
@@ -41,5 +45,18 @@ export class EventService {
 
   getCurrentEvents() {
     return this.eventListCurrent;
+  }
+
+  deleteEvent(event: Event) {
+    this.eventList = this.eventList.filter((e: Event) => {
+      return e.id !== event.id;
+    });
+
+    this.eventListCurrent = this.eventListCurrent.filter((e: Event) => {
+      return e.id !== event.id;
+    });
+
+    this.printEvents();
+    this.printCurrentEvents();
   }
 }

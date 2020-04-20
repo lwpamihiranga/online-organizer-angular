@@ -1,1 +1,4 @@
-<li>{{ event.name }} || {{ event.date }} || {{ event.time }}</li>
+<div>
+  <li>{{ event.name }} || {{ event.date }} || {{ event.time }}</li>
+  <button (click)="delete(event)">Delete</button>
+</div>

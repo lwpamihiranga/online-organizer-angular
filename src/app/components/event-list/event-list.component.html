@@ -1,4 +1,4 @@
 <h4>Event List</h4>
 <div *ngFor="let event of eventList">
-  <app-event [event]="event"></app-event>
+  <app-event [event]="event" (deleteEvent)="deleteEvent($event)"></app-event>
 </div>
