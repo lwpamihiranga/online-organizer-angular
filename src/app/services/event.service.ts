@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Event } from '../models/event';
+import { Observable, of, from, observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -8,6 +9,17 @@ export class EventService {
   eventList: Event[];
 
   eventListCurrent: Event[];
+
+  eventObserver: Observable<Event[]> = new Observable((observer) => {
+    // this.eventListCurrent.forEach((e: Event) => {
+    //   observer.next(e);
+    // });
+    observer.next(this.eventListCurrent);
+
+    setTimeout(() => {
+      console.log(this.eventListCurrent);
+    }, 10);
+  });
 
   constructor() {
     this.eventList = [
@@ -36,6 +48,8 @@ export class EventService {
   }
 
   setCurrentList(date: string) {
+    this.eventListCurrent.splice(0);
+
     this.eventList.forEach((event: Event) => {
       if (event.date === date) {
         this.eventListCurrent.push(event);

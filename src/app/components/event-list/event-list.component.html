@@ -1,4 +1,6 @@
 <h4>Event List</h4>
+<!-- <h3>{{ eventList[0].date }}</h3> -->
 <div *ngFor="let event of eventList">
   <app-event [event]="event" (deleteEvent)="deleteEvent($event)"></app-event>
+  <button (click)="showList()">show</button>
 </div>
