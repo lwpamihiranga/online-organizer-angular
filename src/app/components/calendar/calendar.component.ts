@@ -7,13 +7,10 @@ import { EventService } from 'src/app/services/event.service';
   styleUrls: ['./calendar.component.css'],
 })
 export class CalendarComponent implements OnInit {
-  // public minDate: Date = new Date('01/01/2000');
-  // public maxDate: Date = new Date('12/31/2030');
-  // public value: Date = new Date('04/19/2020');
-  public minDate: Date = new Date('2000-01-01');
+  public minDate: Date = new Date();
   public maxDate: Date = new Date('2030-12-31');
   public value: Date = new Date();
-  time = '18:00';
+
   constructor(private eventService: EventService) {}
 
   ngOnInit(): void {}

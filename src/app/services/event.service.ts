@@ -11,14 +11,7 @@ export class EventService {
   eventListCurrent: Event[];
 
   eventObserver: Observable<Event[]> = new Observable((observer) => {
-    // this.eventListCurrent.forEach((e: Event) => {
-    //   observer.next(e);
-    // });
     observer.next(this.eventListCurrent);
-
-    setTimeout(() => {
-      console.log(this.eventListCurrent);
-    }, 10);
   });
 
   constructor() {
@@ -35,16 +28,6 @@ export class EventService {
 
   addEvent(event: Event) {
     this.eventList.push(event);
-
-    this.printEvents();
-  }
-
-  printEvents() {
-    console.log('Events: ', this.eventList);
-  }
-
-  printCurrentEvents() {
-    console.log('Current Events: ', this.eventListCurrent);
   }
 
   setCurrentList(date: string) {
@@ -69,8 +52,13 @@ export class EventService {
     this.eventListCurrent = this.eventListCurrent.filter((e: Event) => {
       return e.id !== event.id;
     });
+  }
 
-    this.printEvents();
-    this.printCurrentEvents();
+  printEvents() {
+    console.log('Events: ', this.eventList);
+  }
+
+  printCurrentEvents() {
+    console.log('Current Events: ', this.eventListCurrent);
   }
 }

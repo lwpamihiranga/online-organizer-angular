@@ -10,13 +10,15 @@ import { EventService } from 'src/app/services/event.service';
 })
 export class CreateEventComponent implements OnInit {
   eventList: Event[] = [];
-  // model: Event = null;
+  minDate: string;
 
   constructor(private eventService: EventService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.setDate();
+  }
 
-  model = new Event(1, 'event one', '2020-04-20', '16:00');
+  model = new Event(1, '', '', '');
 
   onSubmit() {
     let newEvent: Event = new Event(
@@ -27,5 +29,32 @@ export class CreateEventComponent implements OnInit {
     );
 
     this.eventService.addEvent(newEvent);
+  }
+
+  setDate() {
+    let value = new Date();
+    let year = value.getFullYear();
+    let month = value.getMonth() + 1;
+    let date = value.getDate();
+
+    this.minDate = this.getDateInString(year, month, date);
+  }
+
+  getDateInString(year: number, month: number, date: number): string {
+    let result: string = year.toString();
+
+    if (month.toString().length === 1) {
+      result += '-0' + month.toString();
+    } else {
+      result += '-' + month.toString();
+    }
+
+    if (date.toString().length === 1) {
+      result += '-0' + date.toString();
+    } else {
+      result += '-' + date.toString();
+    }
+
+    return result;
   }
 }
