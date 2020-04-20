@@ -54,6 +54,22 @@ export class EventService {
     });
   }
 
+  getNextEvent() {
+    let result: Event = null;
+    let idArray: number[] = [];
+    this.eventList.forEach((event: Event) => {
+      idArray.push(event.id);
+    });
+
+    let minID = Math.min.apply(Math, idArray);
+
+    this.eventList.find((event: Event) => {
+      return event.id === minID;
+    });
+
+    return result;
+  }
+
   printEvents() {
     console.log('Events: ', this.eventList);
   }
